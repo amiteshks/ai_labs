@@ -1,6 +1,6 @@
 # Works with fastmcp >= 2.0 (my version is 2.12.5)
 
-# pip install fastmcp
+#Run this from your terminal - pip install fastmcp
 # cd Session_10_MCP
 # python mcp_server_fastmcp.py
 
