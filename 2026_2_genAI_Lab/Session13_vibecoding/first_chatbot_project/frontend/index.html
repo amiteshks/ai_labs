@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Enterprise AI assistant — secure, conversational support." />
+  <title>Enterprise AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" aria-label="Product">
+      <div class="sidebar__brand">
+        <div class="logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.12"/>
+            <path d="M9 12h14v2H9v-2zm0 4h10v2H9v-2zm0 4h7v2H9v-2z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <p class="sidebar__product">Nexus Assist</p>
+          <p class="sidebar__tagline">Enterprise AI</p>
+        </div>
+      </div>
+      <nav class="sidebar__nav">
+        <span class="sidebar__nav-label">Session</span>
+        <div class="sidebar__pill">
+          <span class="sidebar__dot" aria-hidden="true"></span>
+          <span>Standard model</span>
+        </div>
+      </nav>
+      <footer class="sidebar__footer">
+        <p class="sidebar__muted">Internal use · v1.0</p>
+      </footer>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar__title">
+          <h1>Assistant</h1>
+          <p class="topbar__subtitle">Ask questions, draft content, or summarize documents.</p>
+        </div>
+        <div class="topbar__status" role="status" title="Backend connection">
+          <span class="topbar__status-dot" id="status-dot" aria-hidden="true"></span>
+          <span id="status-label">Ready</span>
+        </div>
+      </header>
+
+      <main class="chat-panel">
+        <div
+          id="chat-box"
+          class="chat-box"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          aria-label="Conversation"
+        ></div>
+
+        <div class="composer">
+          <label class="sr-only" for="input">Message</label>
+          <div class="composer__field">
+            <input
+              type="text"
+              id="input"
+              class="composer__input"
+              placeholder="Message the assistant…"
+              autocomplete="off"
+              maxlength="8000"
+            />
+            <div class="composer__actions">
+              <button type="button" class="btn btn--ghost" onclick="speakLast()" id="btn-speak" title="Read last reply aloud">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                </svg>
+                <span>Speak</span>
+              </button>
+              <button type="button" class="btn btn--primary" onclick="sendMessage()" id="btn-send">
+                <span>Send</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <p class="composer__hint"><kbd>Enter</kbd> to send · Powered by your secure backend</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
